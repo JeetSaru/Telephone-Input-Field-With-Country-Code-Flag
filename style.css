@@ -1,0 +1,151 @@
+:root {
+    --primary: #111;
+    --secondary: #fd0;
+}	
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {    
+    font-family: sans-serif;
+    background-color: var(--secondary);
+}
+
+.select-box {
+    position: relative;
+
+    width: 26rem;
+    margin: 7rem auto;
+}
+
+.select-box input {
+    width: 100%;
+    padding: 1rem .6rem;
+    font-size: 1.1rem;
+    
+    border: .1rem solid transparent;
+    outline: none;
+}
+
+input[type="tel"] {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.select-box input:focus {
+    border: .1rem solid var(--primary);
+}
+
+.selected-option {
+    background-color: #eee;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selected-option div{
+    position: relative;
+
+    width: 6rem;
+    padding: 0 2.8rem 0 .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.selected-option div::after{
+    position: absolute;
+    content: "";
+    right: .8rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    
+    width: .8rem;
+    height: .8rem;
+    border-right: .12rem solid var(--primary);
+    border-bottom: .12rem solid var(--primary);
+
+    transition: .2s;
+}
+
+.selected-option div.active::after{
+    transform: translateY(-50%) rotate(225deg);
+}
+
+.select-box .options {
+    position: absolute;
+    top: 4rem;
+    
+    width: 100%;
+    background-color: #fff;
+    border-radius: .5rem;
+
+    display: none;
+}
+
+.select-box .options.active {
+    display: block;
+}
+
+.select-box .options::before {
+    position: absolute;
+    content: "";
+    left: 1rem;
+    top: -1.2rem;
+
+    width: 0;
+    height: 0;
+    border: .6rem solid transparent;
+    border-bottom-color: var(--primary);
+}
+
+input.search-box {
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: .5rem .5rem 0 0;
+    padding: 1.4rem 1rem;
+}
+
+.select-box ol {
+    list-style: none;
+    max-height: 23rem;
+    overflow: overlay;
+}
+
+.select-box ol::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.select-box ol::-webkit-scrollbar-thumb {
+    width: 0.4rem;
+    height: 3rem;
+    background-color: #ccc;
+    border-radius: .4rem;
+}
+
+.select-box ol li {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.select-box ol li.hide {
+    display: none;
+}
+
+.select-box ol li:not(:last-child) {
+    border-bottom: .1rem solid #eee;
+}
+
+.select-box ol li:hover {
+    background-color: lightcyan;
+}
+
+.select-box ol li .country-name {
+    margin-left: .4rem;
+}
